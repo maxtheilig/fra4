@@ -37,7 +37,7 @@ double f3(double x, double a, double A, double B)
     return tmp;
 }
 
-void monteCarloIntegration(double & res, double (*f)(double), int steps, double & standartDeviation, bool zeroToOne = true, double a = 0.0, double b = 1.0)
+void monteCarloIntegration(double * res, double (*f)(double), int steps, double * standartDeviation, bool zeroToOne = true, double a = 0.0, double b = 1.0)
 {
     double E_f = 0.0; //Expectation value of f
     double E_f_squared = 0.0; //Expectation value of f^2
@@ -52,14 +52,16 @@ void monteCarloIntegration(double & res, double (*f)(double), int steps, double 
     }
     E_f /= steps;
     E_f_squared /= steps;
-    standartDeviation = sqrt((E_f_squared - E_f * E_f) / (steps - 1));
+    
     if(zeroToOne) {
-        res = E_f;}
+        *res = E_f;
+        *standartDeviation = sqrt((E_f_squared - E_f * E_f) / (steps - 1));}
     else {
-        res = (b - a) * E_f;}
+        *res = (b - a) * E_f;
+        *standartDeviation = (b - a) * sqrt((E_f_squared - E_f * E_f) / (steps - 1));}
 }
 
-void monteCarloIntegration(double & res, double (*f)(double,double,double,double), double accuracy, double & standartDeviation, double c, int & stepsNeeded, double a = 0.0, double b = 1.0)
+void monteCarloIntegration(double & res, double (*f)(double,double,double,double), double accuracy, double & standartDeviation, double c, int * stepsNeeded, double a = 0.0, double b = 1.0)
 {
     double A = 1.5; double B = 0.5;
     double tmp1 = 0.0; //sum f(x_i)
@@ -69,7 +71,7 @@ void monteCarloIntegration(double & res, double (*f)(double,double,double,double
     standartDeviation = 1.0;
     res = 1.0;
     int stepcounter = 0;
-    int N = 1000;
+    int N = 10000;
     rlxd_init(1, time(NULL));
     for(unsigned int i=0; i<N; ++i)
     {
@@ -102,7 +104,7 @@ void monteCarloIntegration(double & res, double (*f)(double,double,double,double
         res = (b - a) * E_f;
         //std::cout << "result_tmp=" << res << std::endl;
     }
-    stepsNeeded = stepcounter;
+    *stepsNeeded = stepcounter;
 }
 
 #endif
