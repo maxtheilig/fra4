@@ -1,0 +1,9 @@
+id      1
+odir    .
+beta    6.0
+epsilon 0.1
+nconf   10
+ntherm  100
+nstep   1
+wconfig 1
+seed    17846
