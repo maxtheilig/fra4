@@ -46,7 +46,50 @@ void init_program(int itype)
    init_twopi_start();
 }
 
+void allocate_gauge(sun_mat *u[VOL][DIM])
+{
+	sun_mat * speicher;
+	speicher = malloc(VOL*DIM*sizeof(sun_mat));
 
+	int n, dir;
+
+	for(n=0; n < VOL; n++)
+		for(dir=0; dir<DIM; dir++)
+			u[n][dir] = speicher + dir + n * DIM;
+}
+
+void init_gauge(int flag)
+{
+	allocate_gauge(pu);
+	logging("allocated pu\n");
+
+	if(flag == 0) {
+		for(unsigned int i=0; i<VOL; ++i){
+			for(unsigned int j=0; j<DIM; ++j){
+				sun_unit(*pu[i][j]);
+			}
+		}
+		logging("set gaugefields to unit matrices\n");
+	}
+	else {
+		for(unsigned int i=0; i<VOL; ++i){
+			for(unsigned int j=0; j<DIM; ++j){
+				random_sun(pu[i][j]);
+			}
+		}
+		logging("set gaugefields to random matrices\n");
+	}
+}
+
+void finish_gauge(void)
+{
+	free(**pu);
+}
+
+void free_gauge(sun_mat *u[VOL][DIM])
+{
+	free(**u);
+}
 
 void neib_init(void)
 {

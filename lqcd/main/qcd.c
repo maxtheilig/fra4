@@ -24,7 +24,6 @@
 #include"modules.h"
 
 
-
 int main(int argc,char *argv[])
 {
    int seed,rconf;
@@ -37,11 +36,29 @@ int main(int argc,char *argv[])
    
    setup_files(runp.id,out_dir);
    neib_init();
-   
+   init_gauge(0);
+   read_config("test_config");
+
+   double *r;
+   r = (double*)(pu[0][0]);
+   for(unsigned int i=0; i<18; i=i+2)
+   {
+       logging("(\%f,%f)", r[i], r[i+1]);
+       if(i==4 || i==10 || i==16)
+    	   logging("\n");
+       else
+    	   logging("\t");
+   }
+
+   double x = plaquette();
+   logging("plaquette = %f\n", x);
+   double y = gauge_action();
+   logging("S_G = %f\n", y);
+
    error_checks(1,0);
    print_info(seed,rconf,cnfg_file);
    
-   
+   finish_gauge();
    
    return 0;
 }

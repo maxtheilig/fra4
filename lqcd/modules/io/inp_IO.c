@@ -75,7 +75,7 @@ void read_inp(int *iseed,char *dir,int *rconf,char *cfile,int argc,char *argv[])
    {
       strcpy(cfile,argv[ii]);
       inf=fopen(cfile,"r");
-      error(inf==NULL,0,"read_inp_heat [inp_IO.c]",
+      error(inf==NULL,"read_inp [inp_IO.c]",
             "Incorrect config file!\n"
             "Syntax: IND-G_pg -i <input file> [-c <input config>]");
       fclose(inf);
@@ -88,10 +88,10 @@ void read_inp(int *iseed,char *dir,int *rconf,char *cfile,int argc,char *argv[])
    for(i=1,ii=0;i<argc;i++)
       if (strcmp(argv[i],"-i")==0)
          ii=i+1;
-   error(ii==0,"read_inp_heat [inp_IO.c]",
+   error(ii==0,"read_inp [inp_IO.c]",
          "Syntax: IND-G_pg -i <input file> [-c <input config>]");
    inf=fopen(argv[ii],"r");
-   error(inf==NULL,"read_inp_heat [inp_IO.c]",
+   error(inf==NULL,"read_inp [inp_IO.c]",
          "Unable to open input file!");
    
    ifail=fscanf(inf,"id      %d\n",&id);

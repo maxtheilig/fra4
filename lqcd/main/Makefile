@@ -24,16 +24,18 @@ RANDOM = ranlxd random_su3
 
 ADMIN = init sun_vfunc endian error_checks utils
 
-IO = IO_utils inp_IO
+IO = IO_utils inp_IO config_IO
 
-MODULES = $(RANDOM) $(ADMIN) $(IO)
+OBS = plaquette
+
+MODULES = $(RANDOM) $(ADMIN) $(IO) $(OBS)  
 
 
 # search path for modules
 
 MDIR = ../modules
 
-VPATH = .:$(MDIR)/random:$(MDIR)/admin:$(MDIR)/io
+VPATH = .:$(MDIR)/random:$(MDIR)/admin:$(MDIR)/io:$(MDIR)/obs
 
 
 # Logging option (-mpilog or -mpitrace or -mpianim)
@@ -72,7 +74,7 @@ PGMS= $(MAIN) $(MODULES)
 # rule to make dependencies
 
 $(addsuffix .d,$(PGMS)): %.d: %.c Makefile
-	@ $(GCC) -ansi $< -MM $(addprefix -I,$(INCPATH)) -o $@
+	@ $(CC) $< -MM $(addprefix -I,$(INCPATH)) -o $@
 
 
 # rule to compile source programs

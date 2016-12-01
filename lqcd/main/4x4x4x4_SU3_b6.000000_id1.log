@@ -1,0 +1,34 @@
+allocated pu
+set gaugefields to unit matrices
+
+Reading configuration test_config:
+computing the average plaquette
+
+Configuration imported (took 0.000e+00 sec)!
+(0.372780,0.334311)	(0.342526,-0.483283)	(-0.143816,0.614574)
+(-0.340766,-0.061963)	(-0.592631,-0.427777)	(-0.579745,0.098643)
+(-0.499036,-0.616663)	(0.336183,0.043472)	(0.068756,0.501052)
+computing the average plaquette
+plaquette = 0.243086
+computing the average plaquette
+S_G = 6975.721236
+*******************************
+LATTICE QCD CODE
+*******************************
+Global parameters:
+*******************************
+Using a four -dimensional lattice:
+latt  :	4x4x4x4
+beta :	6.000000
+eps   :	0.100000
+nconf :	10
+dsw   :	1
+therm :	100
+nsave :	1
+seed  :	17846
+*******************************
+Inline measurements:
+None at the moment!
+*******************************
+Start from ??? configuration:
+*******************************

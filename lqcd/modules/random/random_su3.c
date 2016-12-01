@@ -106,3 +106,43 @@ void random_su3_vector(su3vec *v)
    for (i=0;i<6;i++)
       r[i]*=fact;
 }
+
+void random_su2(su2mat *u)
+{
+	su3vec *v;
+	random_su3_vector(v);
+	u->c0 = sqrt(1 - v->c1.re*v->c1.re - v->c2.re*v->c2.re - v->c3.re*v->c3.re);
+	u->c1 = v->c1.re;
+	u->c2 = v->c2.re;
+	u->c3 = v->c3.re;
+}
+
+void random_su3(su3mat *u)
+{
+	su3vec *v1, *v2, *v3;
+	double *r, norm, fact;
+
+	v1 = (su3vec*)(u);
+	v2 = v1 + 1;
+	v3 = v1 + 2;
+
+	r=(double*)(v3);
+
+	norm=0.0;
+	while (norm<=DBL_EPSILON)
+	{
+		random_su3_vector(v1);
+		random_su3_vector(v2);
+		su3vec_cross_prod(*v3, *v1, *v2);
+		norm=0.0;
+		for (unsigned int i=0; i<6; i++)
+			norm+=r[i]*r[i];
+		norm=sqrt(norm);
+	}
+
+    fact=1.0/norm;
+    for (unsigned int i=0; i<6; i++)
+       r[i]*=fact;
+
+    su3vec_cross_prod(*v2, *v3, *v1);
+}

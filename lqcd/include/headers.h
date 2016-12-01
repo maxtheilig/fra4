@@ -17,13 +17,15 @@
 #define DIM 4
 #define SUN 3
 
-#define LENGT 16
-#define LENGS1 8
-#define LENGS2 8
-#define LENGS3 8
+#define LENGT 4
+#define LENGS1 4
+#define LENGS2 4
+#define LENGS3 4
 
 #define NAME_SIZE 128
 #define DEBUG 0
+
+#define NPLAQ 6
 
 /* SIM_TYPE==0 : Metropolis */
 #define SIM_TYPE 0
@@ -105,6 +107,7 @@
  #define mk_sun_alg_dble_array mk_su2_alg_dble_array
  #define set_alg_zero set_alg_zero_su2
  #define PROJ_FREQ 10
+ #define random_sun random_su2
 #elif(SUN==3)
  #define SUNVOL 18
  #define ALGVOL 8
@@ -133,6 +136,7 @@
  #define mk_dble_array_sun_alg mk_dble_array_su3_alg
  #define mk_sun_alg_dble_array mk_su3_alg_dble_array
  #define set_alg_zero set_alg_zero_su3
+ #define random_sun random_su3
 #endif
 
 /******************************************************************************
