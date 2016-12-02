@@ -3,7 +3,7 @@
 *
 * File random_su3.c
 *
-* Copyright (C) 2016 Bastian Brandt
+* Copyright (C) 2016 Bastian Brandt, Max Theilig
 *
 * This software is distributed under the terms of the GNU General Public
 * License (GPL)
@@ -28,7 +28,13 @@
 * void random_su3_vector(su3vec *v)
 *      Returns a random su3vec v with non-zero norm, including Gaussian
 *      distributed random numbers.
-* 
+*
+* void random_su2(su2mat *u)
+*      Generates a random su2mat using a random su3vec.
+*
+* void random_su3(su3mat *u)
+*      Generates a random su3mat using three random su3vec.
+*
 *******************************************************************************/
 
 #define RANDOM_SU3_C
@@ -109,12 +115,13 @@ void random_su3_vector(su3vec *v)
 
 void random_su2(su2mat *u)
 {
-	su3vec *v;
+	logging("random_su2 not implemented yet");
+/*	su3vec *v;
 	random_su3_vector(v);
 	u->c0 = sqrt(1 - v->c1.re*v->c1.re - v->c2.re*v->c2.re - v->c3.re*v->c3.re);
 	u->c1 = v->c1.re;
 	u->c2 = v->c2.re;
-	u->c3 = v->c3.re;
+	u->c3 = v->c3.re;*/
 }
 
 void random_su3(su3mat *u)

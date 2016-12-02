@@ -3,14 +3,14 @@
 *
 * File qcd.c
 *
-* Copyright (C) 2016 Bastian Brandt
+* Copyright (C) 2016 Bastian Brandt, Max Theilig
 *
 * This software is distributed under the terms of the GNU General Public
 * License (GPL)
 *
 * Program for
 *
-* Syntax: qcd -i [input-filename]
+* Syntax: qcd -i [input-filename] -c [configuration file]
 *
 * For usage instructions see the file README.main
 *

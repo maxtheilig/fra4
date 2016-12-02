@@ -3,7 +3,7 @@
 *
 * File init.c
 *
-* Copyright (C) 2016 Bastian Brandt
+* Copyright (C) 2016 Bastian Brandt, Max Theilig
 *
 * This software is distributed under the terms of the GNU General Public
 * License (GPL)
@@ -17,7 +17,19 @@
 * 
 * void neib_init(void)
 *      Initialises the neib arrays.
-* 
+*
+* void allocate_gauge(sun_mat *u[VOL][DIM])
+* 	   Allocates memory for a given gaugefield.
+*
+* void init_gauge(int flag)
+* 	   Allocates and initialises the global gaugefield pu[VOl][DIM].
+*
+* void finish_gauge(void)
+* 	   Frees memory of the global gaugefield pu[VOl][DIM].
+*
+* void free_gauge(sun_mat *u[VOL][DIM])
+* 	   Frees memory of a given gaugefield.
+*
 *******************************************************************************/
 
 #define INIT_C

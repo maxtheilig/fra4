@@ -3,7 +3,7 @@
 *
 * File modules.h
 *
-* Copyright (C) 2016 Bastian Brandt
+* Copyright (C) 2016 Bastian Brandt, Max Theilig
 *
 * This software is distributed under the terms of the GNU General Public
 * License (GPL)
