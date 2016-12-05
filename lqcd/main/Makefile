@@ -28,14 +28,16 @@ IO = IO_utils inp_IO config_IO
 
 OBS = plaquette
 
-MODULES = $(RANDOM) $(ADMIN) $(IO) $(OBS)  
+UPDATE = exp_fct metro update
+
+MODULES = $(RANDOM) $(ADMIN) $(IO) $(OBS)  $(UPDATE)
 
 
 # search path for modules
 
 MDIR = ../modules
 
-VPATH = .:$(MDIR)/random:$(MDIR)/admin:$(MDIR)/io:$(MDIR)/obs
+VPATH = .:$(MDIR)/random:$(MDIR)/admin:$(MDIR)/io:$(MDIR)/obs:$(MDIR)/update
 
 
 # Logging option (-mpilog or -mpitrace or -mpianim)

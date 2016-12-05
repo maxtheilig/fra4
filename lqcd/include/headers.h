@@ -14,13 +14,13 @@
 
 #define HEADERS_H
 
-#define DIM 4
+#define DIM 3
 #define SUN 3
 
-#define LENGT 4
-#define LENGS1 4
-#define LENGS2 4
-#define LENGS3 4
+#define LENGT 8
+#define LENGS1 8
+#define LENGS2 8
+#define LENGS3 8
 
 #define NAME_SIZE 128
 #define DEBUG 0

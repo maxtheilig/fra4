@@ -37,7 +37,8 @@ int main(int argc,char *argv[])
    setup_files(runp.id,out_dir);
    neib_init();
    init_gauge(0);
-   read_config("test_config");
+   update(1, 10, 0, 0);
+   /*read_config("test_config");
 
    double *r;
    r = (double*)(pu[0][0]);
@@ -53,7 +54,7 @@ int main(int argc,char *argv[])
    double x = plaquette();
    logging("plaquette = %f\n", x);
    double y = gauge_action();
-   logging("S_G = %f\n", y);
+   logging("S_G = %f\n", y);*/
 
    error_checks(1,0);
    print_info(seed,rconf,cnfg_file);

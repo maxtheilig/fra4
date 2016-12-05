@@ -115,13 +115,18 @@ void random_su3_vector(su3vec *v)
 
 void random_su2(su2mat *u)
 {
-	logging("random_su2 not implemented yet");
-/*	su3vec *v;
-	random_su3_vector(v);
-	u->c0 = sqrt(1 - v->c1.re*v->c1.re - v->c2.re*v->c2.re - v->c3.re*v->c3.re);
-	u->c1 = v->c1.re;
-	u->c2 = v->c2.re;
-	u->c3 = v->c3.re;*/
+   double r[3],zw;
+
+   ranlxd(r,3);
+   (*u).c0=1-2.*r[0];
+   (*u).c1=1-2.*r[1];
+   zw=sqrt(1.-(*u).c1*(*u).c1);
+   (*u).c2=zw*cos(twopi*r[2]);
+   (*u).c3=zw*sin(twopi*r[2]);
+   zw=sqrt(1.-(*u).c0*(*u).c0);
+   (*u).c1*=zw;
+   (*u).c2*=zw;
+   (*u).c3*=zw;
 }
 
 void random_su3(su3mat *u)

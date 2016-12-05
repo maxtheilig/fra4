@@ -31,7 +31,7 @@
 
 double plaquette(void)
 {
-	logging("computing the average plaquette\n");
+	//logging("computing the average plaquette\n");
 	double result, factor;
 	sun_mat tmp1, tmp2, tmp3, result_matrix;
 	sun_zero(result_matrix);

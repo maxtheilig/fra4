@@ -88,3 +88,23 @@ extern void project_gfield_to_sun(sun_mat *u[VOL][DIM]);
 extern double plaquette(void);
 extern double gauge_action(void);
 #endif
+
+/* update */
+
+#ifndef EXP_FCT_C
+#if(SUN==3)
+extern void expx(double, su3alg*, su3mat*);
+#elif(SUN==2)
+extern void expx(double, su2alg*, su2mat*);
+#endif
+#endif
+
+#ifndef METRO_C
+extern double local_metr(int, int, int);
+extern void staples(int, int, sun_mat*);
+#endif
+
+#ifndef UPDATE_C
+extern void update(int, int, int, int);
+#endif
+
