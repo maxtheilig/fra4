@@ -37,7 +37,24 @@ int main(int argc,char *argv[])
    setup_files(runp.id,out_dir);
    neib_init();
    init_gauge(0);
-   update(1, 10, 0, 0);
+   double x;
+   int utype = 0;
+   for(unsigned int i=0; i<runp.tc; ++i)
+   {
+	   update(1, 1, utype, 0);
+   }
+   FILE *write;
+   write = fopen("autoc80.txt", "w");
+   for(unsigned int i=0; i<10000; ++i)
+   {
+	   for(unsigned int k=0; k<100; ++k)
+		   update(1, 1, utype, 0);
+	   update(1, 1, utype, 0);
+	   x = plaquette();
+	   //logging("plaq = %f\n", x);
+	   fprintf(write, "%f\n", x);
+   }
+   fclose(write);
    /*read_config("test_config");
 
    double *r;

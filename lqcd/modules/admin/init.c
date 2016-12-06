@@ -73,7 +73,7 @@ void allocate_gauge(sun_mat *u[VOL][DIM])
 void init_gauge(int flag)
 {
 	allocate_gauge(pu);
-	logging("allocated pu\n");
+	logging("allocated gaugefields\n");
 
 	if(flag == 0) {
 		for(unsigned int i=0; i<VOL; ++i){

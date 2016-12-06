@@ -8,14 +8,7 @@
 * This software is distributed under the terms of the GNU General Public
 * License (GPL)
 *
-* Includes the routines to determine the exponential function exp(X),
-* where X is an element of the Lie algebra of SU(N), correctly to O(X^2).
-*
-* The routines included are similar to those used by Martin Luescher in
-* the DD-HMC code.
-*
 * Externally accessible functions:
-*
 *
 *******************************************************************************/
 
@@ -33,21 +26,31 @@ void update(int iup, int nup, int utype, int stype)
 {
 	double acc = 0.0;
 	double plaq;
+	double r[2];
+	int x,y;
 	for(unsigned int k=0; k<nup; ++k)
 	{
-		if(utype ==0)
+		if(utype == 0)
 		{
 			for(unsigned int n=0; n<VOL; ++n)
 			{
 				for(unsigned int dir=0; dir<DIM; ++dir)
 				{
-					acc += local_metr(n, dir, iup);
+					acc += local_metr(n, dir, 1);
 				}
 			}
 		}
-		plaq = plaquette();
-		logging("average plaq = %f\n", plaq);
+		if(utype == 1)
+		{
+			for(unsigned int i=0; i<(VOL*DIM); ++i)
+			{
+				ranlxd(r, 2);
+				x = (int) r[0] * VOL;
+				y = (int) r[1] * DIM;
+				acc += local_metr(x, y ,1);
+			}
+		}
 	}
 	acc /= VOL*DIM*nup;
-	logging("Acceptance Propability = %f\n", acc);
+	//logging("Acceptance Propability = %f\n", acc);
 }

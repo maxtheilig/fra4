@@ -14,7 +14,7 @@
 
 #define HEADERS_H
 
-#define DIM 3
+#define DIM 4
 #define SUN 3
 
 #define LENGT 8
@@ -24,8 +24,6 @@
 
 #define NAME_SIZE 128
 #define DEBUG 0
-
-#define NPLAQ 6
 
 /* SIM_TYPE==0 : Metropolis */
 #define SIM_TYPE 0
@@ -61,12 +59,15 @@
 #if(DIM==2)
 #define VOL (LENGT*LENGS1)
 #define TAREA LENGS1
+#define NPLAQ 1
 #elif(DIM==3)
 #define VOL (LENGT*LENGS1*LENGS2)
 #define TAREA (LENGS1*LENGS2)
+#define NPLAQ 3
 #elif(DIM==4)
 #define VOL (LENGT*LENGS1*LENGS2*LENGS3)
 #define TAREA (LENGS1*LENGS2*LENGS3)
+#define NPLAQ 6
 #endif
 
 /******************************************************************************
