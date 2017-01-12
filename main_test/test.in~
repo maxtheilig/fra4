@@ -1,0 +1,10 @@
+id      4
+odir    .
+alpha   0.5
+nconf   10
+ntherm  1
+nstep   1
+seed    17845
+tau     1.0
+Niter   100
+dpuff   10

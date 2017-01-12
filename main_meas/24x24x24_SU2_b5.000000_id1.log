@@ -1,0 +1,28 @@
+allocated gaugefields
+set gaugefields to unit matrices
+
+Reading configuration configs/24x24x24_SU2_b5.000000_id1_n1:
+
+Configuration imported (took 0.000e+00 sec)!
+W = -0.023277
+W(4,4) = -0.023277
+*******************************
+LATTICE QCD CODE
+*******************************
+Global parameters:
+*******************************
+Using a three-dimensional lattice:
+latt  :	24x24x24
+beta :	5.000000
+eps   :	0.100000
+nconf :	1000
+dsw   :	1
+therm :	300
+nsave :	1
+seed  :	17846
+*******************************
+Inline measurements:
+None at the moment!
+*******************************
+Start from ??? configuration:
+*******************************

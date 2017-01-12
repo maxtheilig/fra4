@@ -1,0 +1,21 @@
+x = 176124.000000
+*******************************
+LATTICE QCD CODE
+*******************************
+Global parameters:
+*******************************
+Using a four -dimensional lattice:
+latt  :	4x4x4x4
+beta :	6.000000
+eps   :	0.100000
+nconf :	10
+dsw   :	1
+therm :	100
+nsave :	1
+seed  :	17846
+*******************************
+Inline measurements:
+None at the moment!
+*******************************
+Start from ??? configuration:
+*******************************
