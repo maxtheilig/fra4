@@ -1,9 +1,0 @@
-id      1
-odir    .
-beta    6.0
-epsilon 0.065
-nconf   1000
-ntherm  300
-nstep   1
-wconfig 1
-seed    17846
