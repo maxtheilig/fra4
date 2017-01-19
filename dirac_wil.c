@@ -120,7 +120,6 @@ void apply_dirac_wil(sun_wferm *r,sun_wferm *s)
 }
 
 
-
 void apply_dirac_wil_conj(sun_wferm *r, sun_wferm *s)
 {
 #if(DIM==4)
@@ -149,7 +148,7 @@ void apply_dirac_wil_conj(sun_wferm *r, sun_wferm *s)
          sunwferm_sun_mult(z1,*pu[n][0],s[n0]);
          mul_sunwferm_g0(z2,z1);
          sunwferm_add_single(z1,z2);
-	 sunwferm_real_mult(z3,-1.,z1);
+         sunwferm_real_mult(z3,-1.,z1);
       }
       else
       {
@@ -163,7 +162,7 @@ void apply_dirac_wil_conj(sun_wferm *r, sun_wferm *s)
          sunwferm_sun_dag_mult(z1,*pu[nm0][0],s[nm0]);
          mul_sunwferm_mg0(z2,z1);
          sunwferm_add_single(z1,z2);
-	 sunwferm_real_mult(z2,-1.,z1);
+         sunwferm_real_mult(z2,-1.,z1);
          sunwferm_add_single(z3,z2);
       }
       else
@@ -176,32 +175,32 @@ void apply_dirac_wil_conj(sun_wferm *r, sun_wferm *s)
 
       sunwferm_sun_mult(z1,*pu[n][1],s[n1]);
       sunwferm_add_single(z3,z1);
-      mul_sunwferm_mg1(z2,z1);
+      mul_sunwferm_g1(z2,z1);
       sunwferm_add_single(z3,z2);
 
       sunwferm_sun_dag_mult(z1,*pu[nm1][1],s[nm1]);
       sunwferm_add_single(z3,z1);
-      mul_sunwferm_g1(z2,z1);
+      mul_sunwferm_mg1(z2,z1);
       sunwferm_add_single(z3,z2);
 
       sunwferm_sun_mult(z1,*pu[n][2],s[n2]);
       sunwferm_add_single(z3,z1);
-      mul_sunwferm_mg2(z2,z1);
+      mul_sunwferm_g2(z2,z1);
       sunwferm_add_single(z3,z2);
 
       sunwferm_sun_dag_mult(z1,*pu[nm2][2],s[nm2]);
       sunwferm_add_single(z3,z1);
-      mul_sunwferm_g2(z2,z1);
+      mul_sunwferm_mg2(z2,z1);
       sunwferm_add_single(z3,z2);
 
       sunwferm_sun_mult(z1,*pu[n][3],s[n3]);
       sunwferm_add_single(z3,z1);
-      mul_sunwferm_mg3(z2,z1);
+      mul_sunwferm_g3(z2,z1);
       sunwferm_add_single(z3,z2);
 
       sunwferm_sun_dag_mult(z1,*pu[nm3][3],s[nm3]);
       sunwferm_add_single(z3,z1);
-      mul_sunwferm_g3(z2,z1);
+      mul_sunwferm_mg3(z2,z1);
       sunwferm_add_single(z3,z2);
 
       sunwferm_real_mult(z1,-0.5,z3);
@@ -212,9 +211,6 @@ void apply_dirac_wil_conj(sun_wferm *r, sun_wferm *s)
 	   error(1,"apply_dirac_wil [dirac_wil.c]","DIM=4 is mandatory!");
 	#endif
 }
-
-
-
 
 
 
